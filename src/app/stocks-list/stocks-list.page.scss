@@ -1,0 +1,31 @@
+:host {
+    padding: 2rem;
+    padding-top: 4rem;
+}
+#search {
+    height: 8rem;
+    padding: 2rem 0;
+    ion-input {
+        border: solid 1px #ccc;
+        border-radius: 2px;
+        margin-bottom: 1rem;
+    }
+    ion-badge {
+        position: relative;
+        top: 4px;
+        padding: 0.2rem 0.7rem;
+    }
+}
+ion-list#stocks {
+    ion-item {
+        ion-label {
+            h2 {
+                display: flex;
+                align-items: center;
+                ion-chip {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}

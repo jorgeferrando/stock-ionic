@@ -3,13 +3,15 @@
     <ion-title>Stocks List</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content fullscreen>
+<section id="search">
   <ion-input placeholder="Search stock" [formControl]="searchFormControl"></ion-input>
-  Number of stocks: <ion-badge>{{ filteredData?.length }}</ion-badge>
-  <ion-list id="list">
+  Number of stocks in search: <ion-badge>{{ filteredData?.length }}</ion-badge>
+</section>
+<ion-content>
+  <ion-list id="stocks">
     <ion-item *ngFor="let stock of filteredData; index as i;trackBy:trackByStock">
       <ion-label>
-        <h2>{{ stock.name }}:{{ stock.market }}</h2>
+        <h2>{{ stock.name }}:{{ stock.market }} <ion-chip>${{stock.value}}</ion-chip></h2>
         <p>{{ stock.title }}</p>
       </ion-label>
     </ion-item>
