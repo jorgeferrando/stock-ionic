@@ -3,6 +3,15 @@
     <ion-title>Stocks List</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <pre>{{ data | json }}</pre>
+<ion-content fullscreen>
+  <ion-input placeholder="Search stock" [formControl]="searchFormControl"></ion-input>
+  Number of stocks: <ion-badge>{{ filteredData?.length }}</ion-badge>
+  <ion-list id="list">
+    <ion-item *ngFor="let stock of filteredData; index as i;trackBy:trackByStock">
+      <ion-label>
+        <h2>{{ stock.name }}:{{ stock.market }}</h2>
+        <p>{{ stock.title }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
