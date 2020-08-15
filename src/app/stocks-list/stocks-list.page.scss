@@ -18,12 +18,27 @@
 }
 ion-list#stocks {
     ion-item {
+        --inner-border-width: 0px;
+        margin-top: 1rem;
         ion-label {
             h2 {
+                font-weight: bold;
                 display: flex;
                 align-items: center;
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+                a:focus {
+                    outline: 0;
+                }
                 ion-chip {
+                    font-weight: normal;
                     margin-left: 1rem;
+                    cursor: default;
+                }
+                ion-chip:hover {
+                    --background: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.12);
                 }
             }
         }

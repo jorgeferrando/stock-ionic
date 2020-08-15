@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StocksService } from '../stocks.service';
 import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Subject, fromEventPattern } from 'rxjs';
 import { takeUntil, distinctUntilChanged, startWith} from 'rxjs/operators';
 
 @Component({

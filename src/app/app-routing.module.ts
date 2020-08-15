@@ -15,6 +15,10 @@ const routes: Routes = [
     redirectTo: 'stocks-list',
     pathMatch: 'full'
   },
+  {
+    path: 'stock-detail',
+    loadChildren: () => import('./stock-detail/stock-detail.module').then( m => m.StockDetailPageModule)
+  },
 ];
 
 @NgModule({
