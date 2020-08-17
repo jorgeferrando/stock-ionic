@@ -28,7 +28,8 @@ export class StocksListPage implements OnInit {
       distinctUntilChanged()
     ).subscribe(query => {
       if (query === '') {
-        this.filteredData = this.data; 
+        this.filteredData = Object.keys(this.data).map(key => this.data[key]); 
+        return;
       }
       const keys = Object.keys(this.data);
       this.filteredData = keys.filter(this.selectIfQueryMatches(query)).map(key => this.data[key]);
@@ -41,9 +42,9 @@ export class StocksListPage implements OnInit {
       if(!this.filteredData.length) {
         return true;
       }
-        return this.data[key].title.toLowerCase().startsWith(_query)
-        || this.data[key].name.toLowerCase().startsWith(_query)
-        || this.data[key].market.toLowerCase().startsWith(_query);
+        return this.data[key].title.toLowerCase().includes(_query)
+        || this.data[key].name.toLowerCase().includes(_query)
+        || this.data[key].market.toLowerCase().includes(_query);
     };
   }
 
