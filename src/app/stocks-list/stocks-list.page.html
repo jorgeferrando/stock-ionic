@@ -11,7 +11,7 @@
   <ion-list id="stocks">
     <ion-item *ngFor="let stock of filteredData; index as i;trackBy:trackByStock">
       <ion-label>
-        <h2><a href="stock-detail/{{stock.name}}:{{stock.market}}">{{ stock.name }}:{{ stock.market }}</a> <ion-chip>${{stock.value}}</ion-chip></h2>
+        <h2><a href="#/stock-detail/{{stock.name}}:{{stock.market}}">{{ stock.name }}:{{ stock.market }}</a> <ion-chip>${{stock.value}}</ion-chip></h2>
         <p>{{ stock.title }}</p>
       </ion-label>
     </ion-item>
