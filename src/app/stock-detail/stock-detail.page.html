@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{stock?.title}} Details</ion-title>
+    <ion-title>
+      <ion-icon (click)="back()" name="chevron-back-outline"></ion-icon> 
+      <span>{{stock?.title}}</span><span class="market"> / {{stock?.market}}</span>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 

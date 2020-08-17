@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil, switchMap, map, filter} from 'rxjs/operators';
 import { StocksService } from '../stocks.service';
@@ -13,7 +13,7 @@ export class StockDetailPage implements OnInit {
   stock: any;
   private onDestroy$ = new Subject();
 
-  constructor(private route: ActivatedRoute,public stocksService: StocksService) { }
+  constructor(private router: Router, private route: ActivatedRoute,public stocksService: StocksService) { }
 
   ngOnInit() {
     this.route.params.pipe(
@@ -29,6 +29,10 @@ export class StockDetailPage implements OnInit {
       map(data => data.filter(item => item.market === market && item.name === name)),
       map(data => data[0])
     );
+  }
+
+  back() {
+    this.router.navigateByUrl('/stocks-list')
   }
 
   ngOnDestroy() {
