@@ -19,8 +19,7 @@ export class StocksListPage implements OnInit {
   ngOnInit() {
     this.stocksService.getData().subscribe(_data => {
       this.data = _data
-      const keys = Object.keys(this.data);
-      this.filteredData = keys.map(key => this.data[key]);
+      this.filteredData = this.data;
     });
     this.searchFormControl.valueChanges.pipe(
       startWith(''),
@@ -28,23 +27,22 @@ export class StocksListPage implements OnInit {
       distinctUntilChanged()
     ).subscribe(query => {
       if (query === '') {
-        this.filteredData = Object.keys(this.data).map(key => this.data[key]); 
+        this.filteredData = this.data;
         return;
       }
-      const keys = Object.keys(this.data);
-      this.filteredData = keys.filter(this.selectIfQueryMatches(query)).map(key => this.data[key]);
+      this.filteredData = this.data.filter(this.selectIfQueryMatches(query));
     });
   }
 
   selectIfQueryMatches(query) {
     const _query = query.toLowerCase();
-    return (key) => {
+    return (item) => {
       if(!this.filteredData.length) {
         return true;
       }
-        return this.data[key].title.toLowerCase().includes(_query)
-        || this.data[key].name.toLowerCase().includes(_query)
-        || this.data[key].market.toLowerCase().includes(_query);
+        return item.title.toLowerCase().includes(_query)
+        || item.name.toLowerCase().includes(_query)
+        || item.market.toLowerCase().includes(_query);
     };
   }
 

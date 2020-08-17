@@ -15,7 +15,7 @@
           <a href="#/stock-detail/{{stock.name}}:{{stock.market}}">{{ stock.name }}
             <span> / {{ stock.market }}</span></a>
         </h2>
-        <p>{{ stock.title }}</p>
+        <p>{{ stock.title }} - P/E: {{stock.pe_ratio}}x</p>
         <p>VALUE: ${{stock.value}} / MarketCap: {{stock.mktcap}}B / EPS: ${{stock.eps}} / YIELD: ${{stock.yield}}</p>
       </ion-label>
     </ion-item>
