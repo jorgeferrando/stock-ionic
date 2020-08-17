@@ -5,7 +5,7 @@ import { StockDetailPage } from './stock-detail.page';
 
 const routes: Routes = [
   {
-    path: ':cik',
+    path: ':id',
     component: StockDetailPage
   }
 ];
