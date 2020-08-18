@@ -15,11 +15,19 @@ export class StocksFileReaderService {
     );
   }
   attachPERatio(item) {
-    if (!item.eps) {
+    let eps = 0;
+    let value = 0;
+    try {
+      value = parseFloat(item.value);
+      eps = parseFloat(item.eps);
+    } catch(e) {
+      eps = 0;
+    }
+    if (!eps || !value) {
       item.pe_ratio = 0;
       return item;
     }
-    item.pe_ratio = parseInt((item.value / item.eps).toString(), 10);
+    item.pe_ratio = parseInt((value / eps).toString(), 10);
     return item;
   }
 }

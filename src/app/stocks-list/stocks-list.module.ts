@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { StocksListPageRoutingModule } from './stocks-list-routing.module';
 
 import { StocksListPage } from './stocks-list.page';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [

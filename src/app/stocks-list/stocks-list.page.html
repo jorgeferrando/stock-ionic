@@ -6,7 +6,7 @@
 <ion-content>
   <section id="search">
     <ion-input placeholder="Search stock" [formControl]="searchFormControl"></ion-input>
-    Number of stocks in search: <ion-badge>{{ filteredData?.length }}</ion-badge>
+    <ion-badge>{{ filteredData?.length }} stocks</ion-badge>
   </section>
   <ion-list id="stocks">
     <ion-item *ngFor="let stock of filteredData; index as i;trackBy:trackByStock">
@@ -15,9 +15,11 @@
           <a href="#/stock-detail/{{stock.name}}:{{stock.market}}">{{ stock.name }}
             <span> / {{ stock.market }}</span></a>
         </h2>
-        <p>{{ stock.title }} - P/E: {{stock.pe_ratio}}x</p>
-        <p>VALUE: ${{stock.value}} / MarketCap: {{stock.mktcap}}B</p>
-        <p>EPS: ${{stock.eps}} / YIELD: ${{stock.yield}}</p>
+        <p *ngIf="stock.title.length <= 17">{{ stock.title }} - P/E: {{stock.pe_ratio}}x</p>
+        <p *ngIf="stock.title.length > 17">{{ stock.title }}</p>
+        <p *ngIf="stock.title.length > 17">P/E: {{stock.pe_ratio}}x</p>
+        <p>Price: ${{stock.value}} / MktCap: ${{stock.mktcap}}B</p>
+        <p>EPS: ${{stock.eps}} / Yield: ${{stock.yield}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
