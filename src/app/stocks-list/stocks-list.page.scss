@@ -1,10 +1,11 @@
 #search {
     height: 8rem;
     padding: 2rem 0;
-    ion-input {
+    ion-input{
         border: solid 1px #ccc;
         border-radius: 2px;
         margin-bottom: 1rem;
+        --padding-start: 10px;
     }
     ion-badge {
         position: relative;
